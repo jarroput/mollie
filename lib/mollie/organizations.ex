@@ -1,17 +1,17 @@
-defmodule Molliex.Organizations do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Organizations do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   Retrieve the currently authenticated organization.
 
   ## Example
 
-      Molliex.Organizations.me client
+      Mollie.Organizations.me client
 
   More info at: https://docs.mollie.com/reference/v2/organizations-api/current-organization
   """
-  @spec me(Client.t()) :: Molliex.response()
+  @spec me(Client.t()) :: Mollie.response()
   def me(client) do
     get("v2/organizations/me", client)
   end
@@ -22,11 +22,11 @@ defmodule Molliex.Organizations do
 
   ## Example
 
-      Molliex.Organizations.list client
+      Mollie.Organizations.list client
 
   More info at: https://docs.mollie.com/reference/v2/organizations-api/list-organizations
   """
-  @spec list(Client.t(), map | list) :: Molliex.response()
+  @spec list(Client.t(), map | list) :: Mollie.response()
   def list(client, params \\ %{}) do
     get("v2/organizations", client, params)
   end
@@ -36,11 +36,11 @@ defmodule Molliex.Organizations do
 
   ## Example
 
-      Molliex.Organizations.find client, "org_12345678"
+      Mollie.Organizations.find client, "org_12345678"
 
   More info at: https://docs.mollie.com/reference/v2/organizations-api/get-organization
   """
-  @spec find(Client.t(), binary) :: Molliex.response()
+  @spec find(Client.t(), binary) :: Mollie.response()
   def find(client, id) do
     get("v2/organizations/#{id}", client)
   end

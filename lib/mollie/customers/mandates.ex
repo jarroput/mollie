@@ -1,6 +1,6 @@
-defmodule Molliex.Customers.Mandates do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Customers.Mandates do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   Retrieve all mandates for the given `customer_id`, ordered from newest to oldest.
@@ -8,11 +8,11 @@ defmodule Molliex.Customers.Mandates do
 
   ## Example
 
-      Molliex.Customers.Mandates.list client, "cst_8wmqcHMN4U"
+      Mollie.Customers.Mandates.list client, "cst_8wmqcHMN4U"
 
   More info at: https://docs.mollie.com/reference/v2/mandates-api/list-mandates
   """
-  @spec list(Client.t(), binary, map | list) :: Molliex.response()
+  @spec list(Client.t(), binary, map | list) :: Mollie.response()
   def list(client, customer_id, params \\ %{}) do
     get("v2/customers/#{customer_id}/mandates", client, params)
   end
@@ -23,11 +23,11 @@ defmodule Molliex.Customers.Mandates do
 
   ## Example
 
-      Molliex.Customers.Mandates.find client, "cst_8wmqcHMN4U", "mdt_pWUnw6pkBN"
+      Mollie.Customers.Mandates.find client, "cst_8wmqcHMN4U", "mdt_pWUnw6pkBN"
 
   More info at: https://docs.mollie.com/reference/v2/mandates-api/get-mandate
   """
-  @spec find(Client.t(), binary, binary, map | list) :: Molliex.response()
+  @spec find(Client.t(), binary, binary, map | list) :: Mollie.response()
   def find(client, customer_id, id, params \\ %{}) do
     get("v2/customers/#{customer_id}/mandates/#{id}", client, params)
   end
@@ -46,11 +46,11 @@ defmodule Molliex.Customers.Mandates do
 
   ## Example
 
-      Molliex.Customers.Mandates.create client, "cst_8wmqcHMN4U", mandate_body
+      Mollie.Customers.Mandates.create client, "cst_8wmqcHMN4U", mandate_body
 
   More info at: https://docs.mollie.com/reference/v2/mandates-api/create-mandate
   """
-  @spec create(Client.t(), binary, map) :: Molliex.response()
+  @spec create(Client.t(), binary, map) :: Mollie.response()
   def create(client, customer_id, body) do
     post("v2/customers/#{customer_id}/mandates", client, body)
   end
@@ -61,11 +61,11 @@ defmodule Molliex.Customers.Mandates do
 
   ## Example
 
-      Molliex.Customers.Mandates.revoke client, "cst_8wmqcHMN4U", "mdt_pWUnw6pkBN"
+      Mollie.Customers.Mandates.revoke client, "cst_8wmqcHMN4U", "mdt_pWUnw6pkBN"
 
   More info at: https://docs.mollie.com/reference/v2/mandates-api/revoke-mandate
   """
-  @spec revoke(Client.t(), binary, binary, map | list) :: Molliex.response()
+  @spec revoke(Client.t(), binary, binary, map | list) :: Mollie.response()
   def revoke(client, customer_id, id, params \\ %{}) do
     delete("v2/customers/#{customer_id}/mandates/#{id}", client, params)
   end

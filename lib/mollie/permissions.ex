@@ -1,17 +1,17 @@
-defmodule Molliex.Permissions do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Permissions do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   List all permissions available with the current app access token. The list is not paginated.
 
   ## Example
 
-      Molliex.Permissions.list client
+      Mollie.Permissions.list client
 
   More info at: https://docs.mollie.com/reference/v2/permissions-api/list-permissions
   """
-  @spec list(Client.t()) :: Molliex.response()
+  @spec list(Client.t()) :: Mollie.response()
   def list(client) do
     get("v2/permissions", client)
   end
@@ -21,11 +21,11 @@ defmodule Molliex.Permissions do
 
   ## Example
 
-      Molliex.Permissions.find client, "payments.read"
+      Mollie.Permissions.find client, "payments.read"
 
   More info at: https://docs.mollie.com/reference/v2/permissions-api/get-permission
   """
-  @spec find(Client.t(), binary) :: Molliex.response()
+  @spec find(Client.t(), binary) :: Mollie.response()
   def find(client, id) do
     get("v2/permissions/#{id}", client)
   end

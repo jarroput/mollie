@@ -1,4 +1,4 @@
-defmodule Molliex.Client do
+defmodule Mollie.Client do
   defstruct auth: nil, endpoint: "https://api.mollie.com/"
 
   @type auth :: %{api_key: binary}

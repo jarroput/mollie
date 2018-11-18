@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :molliex, key: :value
+#     config :mollie, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:molliex, :key)
+#     Application.get_env(:mollie, :key)
 #
 # You can also configure a 3rd-party app:
 #

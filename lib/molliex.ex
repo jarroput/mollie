@@ -1,8 +1,8 @@
-defmodule Molliex do
+defmodule Mollie do
   use HTTPoison.Base
-  alias Molliex.Client
+  alias Mollie.Client
 
-  @user_agent [{"User-agent", "molliex"}]
+  @user_agent [{"User-agent", "mollie_ex"}]
 
   @type response ::
           {:ok, iodata(), HTTPoison.Response.t()}
@@ -10,7 +10,7 @@ defmodule Molliex do
   @type pagination_response :: {response, binary | nil, Client.auth()}
 
   @moduledoc """
-  Documentation for Molliex.
+  Documentation for Mollie.
   """
 
   def process_response_body(""), do: nil

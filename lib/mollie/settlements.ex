@@ -1,6 +1,6 @@
-defmodule Molliex.Settlements do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Settlements do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   Retrieve all settlements, ordered from new to old.
@@ -8,11 +8,11 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.list client
+      Mollie.Settlements.list client
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/list-settlements
   """
-  @spec list(Client.t(), map | list) :: Molliex.response()
+  @spec list(Client.t(), map | list) :: Mollie.response()
   def list(client, params) do
     get("v2/settlements", client, params)
   end
@@ -22,11 +22,11 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.open client
+      Mollie.Settlements.open client
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/get-open-settlement
   """
-  @spec open(Client.t()) :: Molliex.response()
+  @spec open(Client.t()) :: Mollie.response()
   def open(client) do
     get("v2/settlements/open", client)
   end
@@ -36,11 +36,11 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.next client
+      Mollie.Settlements.next client
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/get-next-settlement
   """
-  @spec next(Client.t()) :: Molliex.response()
+  @spec next(Client.t()) :: Mollie.response()
   def next(client) do
     get("v2/settlements/next", client)
   end
@@ -50,11 +50,11 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.find client, "stl_jDk30akdN"
+      Mollie.Settlements.find client, "stl_jDk30akdN"
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/get-settlement
   """
-  @spec find(Client.t(), binary) :: Molliex.response()
+  @spec find(Client.t(), binary) :: Mollie.response()
   def find(client, id) do
     get("v2/settlements/#{id}", client)
   end
@@ -64,12 +64,12 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.list_payments client, "stl_jDk30akdN"
+      Mollie.Settlements.list_payments client, "stl_jDk30akdN"
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/list-settlement-payments
   """
 
-  @spec list_payments(Client.t(), binary) :: Molliex.response()
+  @spec list_payments(Client.t(), binary) :: Mollie.response()
   def list_payments(client, id) do
     get("v2/settlements/#{id}/payments", client)
   end
@@ -79,12 +79,12 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.list_refunds client, "stl_jDk30akdN"
+      Mollie.Settlements.list_refunds client, "stl_jDk30akdN"
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/list-settlement-refunds
   """
 
-  @spec list_refunds(Client.t(), binary) :: Molliex.response()
+  @spec list_refunds(Client.t(), binary) :: Mollie.response()
   def list_refunds(client, id) do
     get("v2/settlements/#{id}/refunds", client)
   end
@@ -94,11 +94,11 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.list_chargebacks client, "stl_jDk30akdN"
+      Mollie.Settlements.list_chargebacks client, "stl_jDk30akdN"
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/list-settlement-chargebacks
   """
-  @spec list_chargebacks(Client.t(), binary) :: Molliex.response()
+  @spec list_chargebacks(Client.t(), binary) :: Mollie.response()
   def list_chargebacks(client, id) do
     get("v2/settlements/#{id}/chargebacks", client)
   end
@@ -108,11 +108,11 @@ defmodule Molliex.Settlements do
 
   ## Example
 
-      Molliex.Settlements.list_captures client, "stl_jDk30akdN"
+      Mollie.Settlements.list_captures client, "stl_jDk30akdN"
 
   More info at: https://docs.mollie.com/reference/v2/settlements-api/list-settlement-captures
   """
-  @spec list_captures(Client.t(), binary) :: Molliex.response()
+  @spec list_captures(Client.t(), binary) :: Mollie.response()
   def list_captures(client, id) do
     get("v2/settlements/#{id}/captures", client)
   end

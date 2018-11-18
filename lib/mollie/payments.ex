@@ -1,6 +1,6 @@
-defmodule Molliex.Payments do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Payments do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   Retrieve all payments created with the current website profile, ordered from newest to oldest.
@@ -8,12 +8,12 @@ defmodule Molliex.Payments do
 
   ## Examples
 
-      Molliex.Payments.list client
-      Molliex.Payments.list client, %{limit: 100, from: "tr_7UhSN1zuXS"}
+      Mollie.Payments.list client
+      Mollie.Payments.list client, %{limit: 100, from: "tr_7UhSN1zuXS"}
 
   More info at: https://docs.mollie.com/reference/v2/payments-api/list-payments
   """
-  @spec list(Client.t(), map) :: Molliex.response()
+  @spec list(Client.t(), map) :: Mollie.response()
   def list(client, params \\ %{}) do
     get("v2/payments", client, params)
   end
@@ -23,11 +23,11 @@ defmodule Molliex.Payments do
 
   ## Example
 
-      Molliex.Payments.find client, "tr_7UhSN1zuXS"
+      Mollie.Payments.find client, "tr_7UhSN1zuXS"
 
   More info at https://docs.mollie.com/reference/v2/payments-api/get-payment
   """
-  @spec find(Client.t(), binary, map) :: Molliex.response()
+  @spec find(Client.t(), binary, map) :: Mollie.response()
   def find(client, id, params \\ %{}) do
     get("v2/payments/#{id}", client, params)
   end
@@ -49,11 +49,11 @@ defmodule Molliex.Payments do
 
   ## Example
 
-      Molliex.Payments.create client, payment_body
+      Mollie.Payments.create client, payment_body
 
   More info at: https://docs.mollie.com/reference/v2/payments-api/create-payment
   """
-  @spec create(Client.t(), map | list) :: Molliex.response()
+  @spec create(Client.t(), map | list) :: Mollie.response()
   def create(client, body) do
     post("v2/payments", client, body)
   end
@@ -63,11 +63,11 @@ defmodule Molliex.Payments do
 
   ## Example
 
-      Molliex.Payments.cancel client, "tr_7UhSN1zuXS"
+      Mollie.Payments.cancel client, "tr_7UhSN1zuXS"
 
   More info at: https://docs.mollie.com/reference/v2/payments-api/cancel-payment
   """
-  @spec cancel(Client.t(), binary, map) :: Molliex.response()
+  @spec cancel(Client.t(), binary, map) :: Mollie.response()
   def cancel(client, id, params \\ %{}) do
     delete("v2/payments/#{id}", client, params)
   end

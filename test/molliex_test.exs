@@ -1,8 +1,8 @@
-defmodule MolliexTest do
+defmodule MollieTest do
   use ExUnit.Case
-  doctest Molliex
+  doctest Mollie
 
   test "greets the world" do
-    assert Molliex.hello() == :world
+    assert Mollie.hello() == :world
   end
 end

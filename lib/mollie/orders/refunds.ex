@@ -1,6 +1,6 @@
-defmodule Molliex.Orders.Refunds do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Orders.Refunds do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   Retrieve all order refunds. Results are paginated
@@ -11,7 +11,7 @@ defmodule Molliex.Orders.Refunds do
 
   More info at: https://docs.mollie.com/reference/v2/orders-api/list-order-refunds
   """
-  @spec list(Client.t(), binary, map | list) :: Molliex.response()
+  @spec list(Client.t(), binary, map | list) :: Mollie.response()
   def list(client, order_id, params \\ %{}) do
     get("v2/orders/#{order_id}/refunds", client, params)
   end
@@ -32,7 +32,7 @@ defmodule Molliex.Orders.Refunds do
 
   More info at: https://docs.mollie.com/reference/v2/orders-api/create-order-refund
   """
-  @spec create(Client.t(), binary, map) :: Molliex.response()
+  @spec create(Client.t(), binary, map) :: Mollie.response()
   def create(client, order_id, body \\ %{}) do
     post("v2/orders/#{order_id}/refunds", client, body)
   end

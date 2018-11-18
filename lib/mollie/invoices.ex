@@ -1,6 +1,6 @@
-defmodule Molliex.Invoices do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Invoices do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   Retrieve all invoices on the account. Optionally filter on year or invoice number.
@@ -8,11 +8,11 @@ defmodule Molliex.Invoices do
 
   ## Example
 
-      Molliex.Invoices.list client
+      Mollie.Invoices.list client
 
   More info at: https://docs.mollie.com/reference/v2/invoices-api/list-invoices
   """
-  @spec list(Client.t(), map | list) :: Molliex.response()
+  @spec list(Client.t(), map | list) :: Mollie.response()
   def list(client, params) do
     get("v2/invoices", client, params)
   end
@@ -22,11 +22,11 @@ defmodule Molliex.Invoices do
 
   ## Example
 
-      Molliex.Invoices.find client, "inv_FrvewDA3Pr"
+      Mollie.Invoices.find client, "inv_FrvewDA3Pr"
 
   More info at: https://docs.mollie.com/reference/v2/invoices-api/get-invoice
   """
-  @spec find(Client.t(), binary) :: Molliex.response()
+  @spec find(Client.t(), binary) :: Mollie.response()
   def find(client, id) do
     get("v2/invoices/#{id}", client)
   end

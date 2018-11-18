@@ -1,17 +1,17 @@
-defmodule Molliex.Orders do
-  import Molliex
-  alias Molliex.Client
+defmodule Mollie.Orders do
+  import Mollie
+  alias Mollie.Client
 
   @doc """
   Retrieve all orders. Results are paginated
 
   ## Example
 
-      Molliex.Orders.list client
+      Mollie.Orders.list client
 
   More info at: https://docs.mollie.com/reference/v2/orders-api/list-orders
   """
-  @spec list(Client.t(), map) :: Molliex.response()
+  @spec list(Client.t(), map) :: Mollie.response()
   def list(client, params \\ %{}) do
     get("v2/orders", client, params)
   end
@@ -21,11 +21,11 @@ defmodule Molliex.Orders do
 
   ## Example
 
-      Molliex.Orders.find client, "ord_8wmqcHMN4U"
+      Mollie.Orders.find client, "ord_8wmqcHMN4U"
 
   More info at: https://docs.mollie.com/reference/v2/orders-api/get-order
   """
-  @spec find(Client.t(), binary, map) :: Molliex.response()
+  @spec find(Client.t(), binary, map) :: Mollie.response()
   def find(client, id, params \\ %{}) do
     get("v2/orders/#{id}", client, params)
   end
@@ -80,11 +80,11 @@ defmodule Molliex.Orders do
   ```
   ## Example
 
-      Molliex.Orders.create client, order_body
+      Mollie.Orders.create client, order_body
 
   More info at: https://docs.mollie.com/reference/v2/orders-api/create-order
   """
-  @spec create(Client.t(), map) :: Molliex.response()
+  @spec create(Client.t(), map) :: Mollie.response()
   def create(client, body) do
     post("v2/orders", client, body)
   end
@@ -110,11 +110,11 @@ defmodule Molliex.Orders do
 
   ## Example
 
-      Molliex.Orders.update client, "ord_8wmqcHMN4U", update_body
+      Mollie.Orders.update client, "ord_8wmqcHMN4U", update_body
 
   More info at: https://docs.mollie.com/reference/v2/orders-api/update-order
   """
-  @spec update(Client.t(), binary, map) :: Molliex.response()
+  @spec update(Client.t(), binary, map) :: Mollie.response()
   def update(client, id, body) do
     patch("v2/orders/#{id}", client, body)
   end
@@ -124,11 +124,11 @@ defmodule Molliex.Orders do
 
   ## Example
 
-      Molliex.Orders.cancel client, "ord_8wmqcHMN4U"
+      Mollie.Orders.cancel client, "ord_8wmqcHMN4U"
 
   More info at: https://docs.mollie.com/reference/v2/orders-api/cancel-order
   """
-  @spec cancel(Client.t(), binary, map) :: Molliex.response()
+  @spec cancel(Client.t(), binary, map) :: Mollie.response()
   def cancel(client, id, params \\ %{}) do
     delete("v2/orders/#{id}", client, params)
   end

@@ -1,4 +1,4 @@
-defmodule Molliex.MixProject do
+defmodule Mollie.MixProject do
   use Mix.Project
 
   @description """
@@ -7,7 +7,7 @@ defmodule Molliex.MixProject do
 
   def project do
     [
-      app: :molliex,
+      app: :mollie,
       version: "0.1.0",
       elixir: "~> 1.5",
       description: @description,
@@ -37,7 +37,7 @@ defmodule Molliex.MixProject do
       name: "mollie_ex",
       maintainers: ["Jarro Put"],
       licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/jarroput/molliex"}
+      links: %{"Github" => "https://github.com/jarroput/mollie"}
     ]
   end
 end
