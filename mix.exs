@@ -34,7 +34,7 @@ defmodule Mollie.MixProject do
 
   defp package do
     [
-      name: "mollie_ex",
+      name: "mollie",
       maintainers: ["Jarro Put"],
       licenses: ["MIT"],
       links: %{"Github" => "https://github.com/jarroput/mollie"}
