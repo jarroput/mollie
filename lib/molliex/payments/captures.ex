@@ -13,7 +13,7 @@ defmodule Molliex.Payments.Captures do
   """
   @spec list(Client.t(), binary, map) :: Molliex.response()
   def list(client, payment_id, params \\ %{}) do
-    get("v2/payments/#{payment_id}/captures", params)
+    get("v2/payments/#{payment_id}/captures", client, params)
   end
 
   @doc """
@@ -27,6 +27,6 @@ defmodule Molliex.Payments.Captures do
   """
   @spec find(Client.t(), binary, binary, map) :: Molliex.response()
   def find(client, payment_id, id, params \\ %{}) do
-    get("v2/payments/#{payment_id}/captures/#{id}", params)
+    get("v2/payments/#{payment_id}/captures/#{id}", client, params)
   end
 end
