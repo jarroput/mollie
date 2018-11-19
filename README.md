@@ -1,8 +1,12 @@
 [![Build Status](https://travis-ci.com/jarroput/mollie.svg?branch=master)](https://travis-ci.com/jarroput/mollie)
 
-# Mollie
+# Mollie API Client
 
-**TODO: Add description**
+An API wrapper for [Mollie](https://www.mollie.com/en/developers) written in Elixir.
+
+## Documentation
+
+Documentation for this package can be found [here](https://hexdocs.pm/mollie). 
 
 ## Installation
 
@@ -16,7 +20,3 @@ def deps do
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/mollie](https://hexdocs.pm/mollie).
