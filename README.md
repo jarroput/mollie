@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/jarroput/mollie.svg?branch=master)](https://travis-ci.com/jarroput/mollie)
+
 # Mollie
 
 **TODO: Add description**
