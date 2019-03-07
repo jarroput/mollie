@@ -6,7 +6,7 @@ An API wrapper for [Mollie](https://www.mollie.com/en/developers) written in Eli
 
 ## Documentation
 
-Documentation for this package can be found [here](https://hexdocs.pm/mollie). 
+Documentation for this package can be found [here](https://hexdocs.pm/mollie).
 
 ## Installation
 
@@ -16,7 +16,7 @@ by adding `mollie` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:mollie, "~> 0.1.0"}
+    {:mollie, "~> 0.1.1"}
   ]
 end
 ```
