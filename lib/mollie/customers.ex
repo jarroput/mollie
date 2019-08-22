@@ -72,7 +72,7 @@ defmodule Mollie.Customers do
   """
   @spec update(Client.t(), binary, map) :: Mollie.response()
   def update(client, id, body) do
-    update("v2/customers/#{id}", client, body)
+    patch("v2/customers/#{id}", client, body)
   end
 
   @doc """

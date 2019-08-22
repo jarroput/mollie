@@ -15,12 +15,11 @@ defmodule Mollie.Client do
   @spec new(map()) :: t
   def new(auth = %{api_key: _}), do: %__MODULE__{auth: auth}
 
-  @spec new(map(), binary) :: t
+  @spec new(auth, binary) :: t
   def new(auth = %{api_key: _}, endpoint) do
     pnew(auth, endpoint)
   end
 
-  @spec new(auth, binary) :: t
   defp pnew(auth, endpoint) do
     endpoint =
       if String.ends_with?(endpoint, "/") do

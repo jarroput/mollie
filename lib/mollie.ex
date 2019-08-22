@@ -40,10 +40,10 @@ defmodule Mollie do
   end
 
   @spec get(binary, Client.t()) :: response
-  @spec get(binary, Client.t(), keyword) :: response
-  @spec get(binary, Client.t(), keyword, keyword) ::
+  @spec get(binary, Client.t(), map()) :: response
+  @spec get(binary, Client.t(), map(), list) ::
           response | Enumerable.t() | pagination_response
-  def get(path, client, params \\ [], options \\ []) do
+  def get(path, client, params \\ %{}, options \\ []) do
     url =
       client
       |> url(path)
@@ -68,11 +68,11 @@ defmodule Mollie do
   end
 
   @spec url(client :: Client.t(), path :: binary) :: binary
-  defp url(_client = %Client{endpoint: endpoint}, path) do
+  defp url(%Client{endpoint: endpoint}, path) do
     endpoint <> path
   end
 
-  @spec add_params_to_url(binary, list) :: binary
+  @spec add_params_to_url(binary, map) :: binary
   def add_params_to_url(url, params) do
     url
     |> URI.parse()
@@ -80,7 +80,8 @@ defmodule Mollie do
     |> String.Chars.to_string()
   end
 
-  @spec merge_uri_params(URI.t(), list) :: URI.t()
+  @spec merge_uri_params(URI.t(), map() | list) :: URI.t()
+  defp merge_uri_params(uri, %{}), do: uri
   defp merge_uri_params(uri, []), do: uri
 
   defp merge_uri_params(%URI{query: nil} = uri, params) when is_list(params) or is_map(params) do

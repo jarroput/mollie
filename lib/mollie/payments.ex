@@ -53,7 +53,7 @@ defmodule Mollie.Payments do
 
   More info at: https://docs.mollie.com/reference/v2/payments-api/create-payment
   """
-  @spec create(Client.t(), map | list) :: Mollie.response()
+  @spec create(Client.t(), map() | list) :: Mollie.response()
   def create(client, body) do
     post("v2/payments", client, body)
   end
