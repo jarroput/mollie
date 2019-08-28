@@ -25,7 +25,7 @@ defmodule Mollie.MixProject do
 
   defp deps do
     [
-      {:httpoison, "~> 0.8"},
+      {:httpoison, "~> 1.5"},
       {:jason, "~> 1.1"},
       {:credo, "~> 1.0", only: [:test, :dev], runtime: false},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false}
