@@ -16,7 +16,7 @@ by adding `mollie` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:mollie, "~> 0.1.1"}
+    {:mollie, "~> 0.2.2"}
   ]
 end
 ```
