@@ -13,6 +13,12 @@ defmodule Mollie do
   Documentation for Mollie.
   """
 
+  def process_response_body(""), do: nil
+  def process_response_body(body), do: Jason.decode!(body)
+
+  def process_response(%HTTPoison.Response{status_code: status_code, body: body} = resp),
+    do: {status_code, body, resp}
+
   @spec delete(binary, Client.t(), any) :: response
   def delete(path, client, body \\ "") do
     _request(:delete, url(client, path), client.auth, body, client.options)
