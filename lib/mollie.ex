@@ -80,9 +80,6 @@ defmodule Mollie do
   end
 
   @spec merge_uri_params(URI.t(), map() | list) :: URI.t()
-  defp merge_uri_params(uri, %{}), do: uri
-  defp merge_uri_params(uri, []), do: uri
-
   defp merge_uri_params(%URI{query: nil} = uri, params) when is_list(params) or is_map(params) do
     uri
     |> Map.put(:query, encode_query(params))
@@ -97,6 +94,8 @@ defmodule Mollie do
       |> encode_query()
     end)
   end
+
+  defp merge_uri_params(uri, _), do: uri
 
   defp encode_query(params) when is_map(params) do
     params
