@@ -2,7 +2,7 @@ defmodule Mollie do
   use HTTPoison.Base
   alias Mollie.Client
 
-  @user_agent [{"User-agent", "mollie_ex"}]
+  @user_agent [{"User-agent", "MollieElixir/#{Application.spec(:mollie, :vsn)}"}]
 
   @type response ::
           {:ok, iodata(), HTTPoison.Response.t()}
