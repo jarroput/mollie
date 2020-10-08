@@ -1,23 +1,45 @@
 defmodule Mollie do
-  use HTTPoison.Base
+  alias Finch.Response
   alias Mollie.Client
 
   @user_agent [{"User-agent", "MollieElixir/#{Application.spec(:mollie, :vsn)}"}]
 
   @type response ::
-          {:ok, iodata(), HTTPoison.Response.t()}
-          | {integer, any, HTTPoison.Response.t()}
+          {:ok, iodata(), Response.t()}
+          | {integer, any, Response.t()}
   @type pagination_response :: {response, binary | nil, Client.auth()}
 
   @moduledoc """
   Documentation for Mollie.
   """
 
+  def child_spec(opts \\ %{}) do
+    {Finch, name: __MODULE__, pools: default_pools(opts)}
+  end
+
+  def default_pools(%{}) do
+    %{
+      :default => [size: 10]
+    }
+  end
+
+  def default_pools(opts), do: opts
+
   def process_response_body(""), do: nil
   def process_response_body(body), do: Jason.decode!(body)
 
-  def process_response(%HTTPoison.Response{status_code: status_code, body: body} = resp),
-    do: {status_code, body, resp}
+  def handle_response({:ok, %Response{body: body, status: status} = response}) do
+    body = process_response_body(body)
+    {status, body, response}
+  end
+
+  def handle_response({:error, %Mint.TransportError{} = error}) do
+    {500, %{"status" => 500, "error" => "transport_error"}, error}
+  end
+
+  def handle_response({:error, %Mint.HTTPError{} = error}) do
+    {500, %{"status" => 500, "error" => "http_error"}, error}
+  end
 
   @spec delete(binary, Client.t(), any) :: response
   def delete(path, client, body \\ "") do
@@ -63,7 +85,9 @@ defmodule Mollie do
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
     method
-    |> request!(url, body, headers, options)
+    |> Finch.build(url, headers, body)
+    |> Finch.request(__MODULE__, options)
+    |> handle_response()
   end
 
   @spec url(client :: Client.t(), path :: binary) :: binary

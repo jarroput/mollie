@@ -8,7 +8,7 @@ defmodule Mollie.MixProject do
   def project do
     [
       app: :mollie,
-      version: "0.4.0",
+      version: "0.5.0-dev",
       elixir: "~> 1.5",
       description: @description,
       start_permanent: Mix.env() == :prod,
@@ -25,8 +25,8 @@ defmodule Mollie.MixProject do
 
   defp deps do
     [
-      {:httpoison, "~> 1.5"},
-      {:jason, "~> 1.1"},
+      {:finch, "~> 0.4.0"},
+      {:jason, "~> 1.2"},
       {:credo, "~> 1.0", only: [:test, :dev], runtime: false},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
