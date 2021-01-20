@@ -13,17 +13,17 @@ defmodule Mollie do
   Documentation for Mollie.
   """
 
-  def child_spec(opts \\ %{}) do
-    {Finch, name: __MODULE__, pools: default_pools(opts)}
+  def child_spec(opts \\ nil) do
+    Finch.child_spec(name: __MODULE__, pools: default_pools(opts))
   end
 
-  def default_pools(%{}) do
+  def default_pools(opts) when is_map(opts), do: opts
+
+  def default_pools(_) do
     %{
       :default => [size: 10]
     }
   end
-
-  def default_pools(opts), do: opts
 
   def process_response_body(""), do: nil
   def process_response_body(body), do: Jason.decode!(body)
