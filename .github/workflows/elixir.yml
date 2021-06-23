@@ -1,0 +1,45 @@
+name: CI
+on: [pull_request, push]
+jobs:
+ mix_test:
+   strategy:
+     fail-fast: false
+     matrix:
+       include:
+         - pair:
+             elixir: '1.7.4'
+             otp: '19.x'
+         - pair:
+             elixir: '1.11.4'
+             otp: '23.x'
+           lint: lint
+
+   runs-on: ubuntu-18.04
+   steps:
+     - uses: actions/checkout@v2
+     - uses: actions/cache@v2
+       with:
+         path: deps
+         key: deps-${{ hashFiles('**/mix.lock') }}
+         restore-keys: deps-
+     - uses: actions/cache@v2
+       with:
+         path: _build
+         key: build-${{ runner.os }}-${{ matrix.pair.otp }}-${{ matrix.pair.elixir }}-${{ hashFiles('**/mix.lock') }}
+         restore-keys: build-${{ runner.os }}-${{ matrix.pair.otp }}-${{ matrix.pair.elixir }}-
+     - uses: erlef/setup-beam@v1
+       with:
+         otp-version: ${{matrix.pair.otp}}
+         elixir-version: ${{matrix.pair.elixir}}
+     - name: Install Dependencies
+       run: mix deps.get
+     - run: mix deps.unlock --check-unused
+       if: ${{ matrix.lint }}
+     - run: mix deps.compile
+     - run: mix compile --warnings-as-errors
+       if: ${{ matrix.lint }}
+     - name: Run Credo
+       run: mix credo
+       if: ${{ matrix.lint }}
+     - name: Run Tests
+       run: mix test
