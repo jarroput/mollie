@@ -2,6 +2,10 @@ defmodule Mollie.Payments.Captures do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Captures are used for payments that have the authorize-then-capture flow. The only payment methods at the moment that have this flow are Klarna Pay later and Klarna Slice it.
+  """
+
   @doc """
   Retrieve all captures for a certain payment.
 

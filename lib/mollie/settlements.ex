@@ -2,6 +2,10 @@ defmodule Mollie.Settlements do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Successful payments, together with refunds, captures and chargebacks are collected into settlements, which are then paid out according to your organization’s payout schedule.
+  """
+
   @doc """
   Retrieve all settlements, ordered from new to old.
   Results are paginated.

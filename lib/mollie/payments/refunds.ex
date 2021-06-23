@@ -2,6 +2,10 @@ defmodule Mollie.Payments.Refunds do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Create refunds on a Payment. The refunded amount is credited to your customer.
+  """
+
   @doc """
   Retrieve a single refund by its ID.
 

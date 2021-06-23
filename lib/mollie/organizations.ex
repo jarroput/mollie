@@ -2,6 +2,10 @@ defmodule Mollie.Organizations do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Retrieve organization info. You can only retrieve organizations that the authenticated organization is connected to.
+  """
+
   @doc """
   Retrieve the currently authenticated organization.
 

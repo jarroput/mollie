@@ -2,6 +2,12 @@ defmodule Mollie.Payments do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Payment creation is elemental to the Mollie API: this is where most payment implementations start off.
+
+  Once you have created a payment, you should redirect your customer to the URL in the `_links.checkout` property from the response.
+  """
+
   @doc """
   Retrieve all payments created with the current website profile, ordered from newest to oldest.
   Results are paginated.

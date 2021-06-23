@@ -2,6 +2,10 @@ defmodule Mollie.Onboarding do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Rertrieve or submit data that is used for onboarding organizations onto your merchant account. Please note that the data you submit will only be processed when the onboarding status is `needs-data`.
+  """
+
   @doc """
   Get the status of onboarding of the authenticated organization
 

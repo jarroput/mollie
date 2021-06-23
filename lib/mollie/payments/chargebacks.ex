@@ -2,6 +2,10 @@ defmodule Mollie.Payments.Chargebacks do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  List chargebacks for your orgnaization or retrieve a single chargeback by its ID. Note the original payment’s ID is needed as well.
+  """
+
   @doc """
   Retrieve a single chargeback for a payment by its ID.
 

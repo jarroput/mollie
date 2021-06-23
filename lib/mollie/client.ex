@@ -1,6 +1,11 @@
 defmodule Mollie.Client do
   defstruct auth: nil, endpoint: "https://api.mollie.com/", options: []
 
+  @moduledoc """
+  The Client module sets up the endpoint and authorization used in the Mollie API.
+  Every API needs a client.
+  """
+
   @type auth :: %{api_key: binary}
   @type t :: %__MODULE__{auth: auth | nil, endpoint: binary, options: list}
 

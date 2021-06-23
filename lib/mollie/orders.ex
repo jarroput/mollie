@@ -2,6 +2,10 @@ defmodule Mollie.Orders do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Using the Orders API is the preferred approach when integrating the Mollie API into e-commerce applications such as webshops. If you want to use 'pay after delivery' methods such as Klarna Pay later, using the Orders API is mandatory.
+  """
+
   @doc """
   Retrieve all orders. Results are paginated
 

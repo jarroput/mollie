@@ -2,6 +2,10 @@ defmodule Mollie.Profiles do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  In order to process payments, you need to create a website profile. A website profile can easily be created via the Dashboard manually. However, the Mollie API also allows automatic profile creation via the Profiles API.
+  """
+
   @doc """
   Use this API if you are creating a plugin or SaaS application that allows users to enter a Mollie API key,
   and you want to give a confirmation of the website profile that will be used in your plugin or application.

@@ -2,8 +2,13 @@ defmodule Mollie.Methods do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Retrieve enabled payment methods for the authorized organization.
+  To list all available payment methods use `list_all/2`.
+  """
+
   @doc """
-  List all available payment methods.
+  List all enabled payment methods.
 
   ## Example
 
