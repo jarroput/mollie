@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.1
+
+  * Enhancements
+    * Add Mollie Connect APIs
+
 ## v0.6.0
 
   * Enhancements

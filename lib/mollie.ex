@@ -91,7 +91,7 @@ defmodule Mollie do
   end
 
   @spec url(client :: Client.t(), path :: binary) :: binary
-  defp url(%Client{endpoint: endpoint}, path) do
+  def url(%Client{endpoint: endpoint}, path) do
     endpoint <> path
   end
 
@@ -123,6 +123,7 @@ defmodule Mollie do
 
   defp encode_query(params) when is_map(params) do
     params
+    |> Enum.sort()
     |> Enum.map_join("&", &encode_query(&1))
   end
 
