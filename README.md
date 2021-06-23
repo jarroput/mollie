@@ -10,13 +10,12 @@ Documentation for this package can be found [here](https://hexdocs.pm/mollie).
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `mollie` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `mollie` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:mollie, "~> 0.2.2"}
+    {:mollie, "~> 0.6"}
   ]
 end
 ```
