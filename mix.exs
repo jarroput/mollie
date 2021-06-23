@@ -8,8 +8,8 @@ defmodule Mollie.MixProject do
   def project do
     [
       app: :mollie,
-      version: "0.5.0-dev",
-      elixir: "~> 1.5",
+      version: "0.6.0",
+      elixir: "~> 1.7",
       description: @description,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
