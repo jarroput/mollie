@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/jarroput/mollie.svg?branch=master)](https://travis-ci.com/jarroput/mollie)
+[![CI](https://github.com/jarroput/mollie/actions/workflows/elixir.yml/badge.svg?branch=master)](https://github.com/jarroput/mollie/actions/workflows/elixir.yml)
 [![Hex.pm](https://img.shields.io/hexpm/v/mollie)](https://hex.pm/packages/mollie)
 # Mollie API Client
 
