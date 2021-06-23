@@ -2,6 +2,16 @@ defmodule Mollie.Customers.Payments do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Linking customers to payments enables a number of Mollie Checkout features, including:
+
+  - Keeping track of payment preferences for your customers.
+  - Enabling your customers to charge a previously used credit card with a single click.
+  - Improved payment insights in your dashboard.
+  - Recurring payments.
+
+  """
+
   @doc """
   Retrieve all payments linked to the customer.
 

@@ -2,6 +2,10 @@ defmodule Mollie.Customers do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Creates a simple minimal representation of a customer in the Mollie API to use for the Mollie Checkout and Recurring features. These customers will appear in your Mollie Dashboard where you can manage their details, and also see their payments and subscriptions.
+  """
+
   @doc """
   Retrieve all customers created. Results are paginated.
 

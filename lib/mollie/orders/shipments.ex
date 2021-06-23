@@ -2,6 +2,12 @@ defmodule Mollie.Orders.Shipments do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  The Shipment API is used to ship order lines created by the Create order.
+
+  The word 'shipping' is used in the figurative sense here. It can also mean that a service was provided or digital content was delivered.
+  """
+
   @doc """
   Retrieve all shipments for an order.
 

@@ -2,8 +2,13 @@ defmodule Mollie.Methods do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Retrieve enabled payment methods for the authorized organization.
+  To list all available payment methods use `list_all/2`.
+  """
+
   @doc """
-  List all available payment methods.
+  List all enabled payment methods.
 
   ## Example
 
@@ -14,6 +19,20 @@ defmodule Mollie.Methods do
   @spec list(Client.t(), map) :: Mollie.response()
   def list(client, params \\ %{}) do
     get("v2/methods", client, params)
+  end
+
+  @doc """
+  List all available payment methods.
+
+  ## Example
+
+      Mollie.Methods.list_all client
+
+  More info at: https://docs.mollie.com/reference/v2/methods-api/list-methods
+  """
+  @spec list(Client.t(), map) :: Mollie.response()
+  def list_all(client, params \\ %{}) do
+    get("v2/methods/all", client, params)
   end
 
   @doc """

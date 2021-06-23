@@ -2,6 +2,10 @@ defmodule Mollie.Permissions do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  All API actions through OAuth are by default protected for privacy and/or money related reasons and therefore require specific permissions. These permissions can be requested by apps during the OAuth authorization flow. The Permissions resource allows the app to check whether an API action is (still) allowed by the authorization.
+  """
+
   @doc """
   List all permissions available with the current app access token. The list is not paginated.
 

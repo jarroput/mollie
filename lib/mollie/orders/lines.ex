@@ -2,6 +2,10 @@ defmodule Mollie.Orders.Lines do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Cancel one or more order lines that were previously authorized using a pay after delivery payment method.
+  """
+
   @doc """
   Cancels a single or multiple order lines. Use `Mollie.Orders.cancel\3` to cancel
   an order completely.

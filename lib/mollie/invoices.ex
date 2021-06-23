@@ -2,6 +2,11 @@ defmodule Mollie.Invoices do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Retrieve details of an invoice. To retrieve details of an invoice by its invoice number, use `list/2`
+  with the `reference` parameter.
+  """
+
   @doc """
   Retrieve all invoices on the account. Optionally filter on year or invoice number.
   Results are paginated.

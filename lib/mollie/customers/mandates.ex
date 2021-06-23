@@ -2,6 +2,13 @@ defmodule Mollie.Customers.Mandates do
   import Mollie
   alias Mollie.Client
 
+  @moduledoc """
+  Mandates allow you to charge a customer’s credit card, PayPal account or bank account recurrently.
+
+  It is only possible to create mandates for IBANs and PayPal billing agreements with this API.
+  To create mandates for credit cards, have your customers perform a ‘first payment’ with their credit card.
+  """
+
   @doc """
   Retrieve all mandates for the given `customer_id`, ordered from newest to oldest.
   Results are paginated.
