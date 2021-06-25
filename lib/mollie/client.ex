@@ -6,7 +6,7 @@ defmodule Mollie.Client do
   Every API needs a client.
   """
 
-  @type auth :: %{api_key: binary}
+  @type auth :: %{api_key: binary} | %{username: binary, password: binary}
   @type t :: %__MODULE__{auth: auth | nil, endpoint: binary, options: list}
 
   @spec new() :: t
@@ -17,15 +17,15 @@ defmodule Mollie.Client do
     pnew(nil, endpoint)
   end
 
-  @spec new(map()) :: t
-  def new(auth = %{api_key: _}), do: %__MODULE__{auth: auth}
+  @spec new(auth) :: t
+  def new(auth), do: %__MODULE__{auth: auth}
 
   @spec new(auth, binary | list) :: t
-  def new(auth = %{api_key: _}, endpoint) when is_binary(endpoint) do
+  def new(auth, endpoint) when is_binary(endpoint) do
     pnew(auth, endpoint)
   end
 
-  def new(auth = %{api_key: _}, options) when is_list(options) do
+  def new(auth, options) when is_list(options) do
     %__MODULE__{auth: auth, options: options}
   end
 

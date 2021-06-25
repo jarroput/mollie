@@ -158,9 +158,19 @@ defmodule Mollie do
     end
   end
 
+  def authorization_header(%{username: user, password: pass}, headers)
+      when is_binary(user) and is_binary(pass) do
+    headers ++ [{"Authorization", encode_basic_auth(user, pass)}]
+  end
+
   def authorization_header(%{api_key: key}, headers) do
     headers ++ [{"Authorization", "Bearer #{key}"}]
   end
 
   def authorization_header(_, headers), do: headers
+
+  defp encode_basic_auth(username, password) do
+    user_pw_encoded = Base.encode64("#{username}:#{password}")
+    "Basic #{user_pw_encoded}"
+  end
 end
