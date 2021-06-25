@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.2
+
+  * Enhancements
+    * Allow Basic authentication for Mollie Connect
+
 ## v0.6.1
 
   * Enhancements
