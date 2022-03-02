@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.0
+
+  * Enhancements
+    * Add APIs to enable/disable payment methods
+
 ## v0.6.2
 
   * Enhancements
