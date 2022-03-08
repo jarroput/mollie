@@ -18,7 +18,7 @@ defmodule Mollie.Profiles.Methods do
   """
   @spec enable(Client.t(), binary, binary) :: Mollie.response()
   def enable(client, id, method) do
-    post("v2/profiles/#{id}/#{method}", client)
+    post("v2/profiles/#{id}/methods/#{method}", client)
   end
 
   @doc """
@@ -36,7 +36,7 @@ defmodule Mollie.Profiles.Methods do
   """
   @spec enable(Client.t(), binary) :: Mollie.response()
   def enable(client, method) do
-    post("v2/profiles/me/#{method}", client)
+    post("v2/profiles/me/methods/#{method}", client)
   end
 
   @doc """
@@ -50,7 +50,7 @@ defmodule Mollie.Profiles.Methods do
   """
   @spec disable(Client.t(), binary, binary) :: Mollie.response()
   def disable(client, id, method) do
-    delete("v2/profiles/#{id}/#{method}", client)
+    delete("v2/profiles/#{id}/methods/#{method}", client)
   end
 
   @doc """
@@ -67,6 +67,6 @@ defmodule Mollie.Profiles.Methods do
   """
   @spec disable(Client.t(), binary) :: Mollie.response()
   def disable(client, method) do
-    delete("v2/profiles/me/#{method}", client)
+    delete("v2/profiles/me/methods/#{method}", client)
   end
 end
