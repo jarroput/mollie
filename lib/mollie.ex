@@ -80,8 +80,12 @@ defmodule Mollie do
 
   def json_request(method, url, body \\ "", headers \\ [], options \\ []) do
     headers = headers ++ [{"Content-Type", "application/json"}]
-    raw_request(method, url, Jason.encode!(body), headers, options)
+    raw_request(method, url, encode_body(body), headers, options)
   end
+
+  defp encode_body(""), do: ""
+  defp encode_body(nil), do: ""
+  defp encode_body(body), do: Jason.encode!(body)
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
     method

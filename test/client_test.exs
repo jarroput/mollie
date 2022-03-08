@@ -11,7 +11,7 @@ defmodule ClientTest do
   test "custom endpoint" do
     expected = "https://ghe.foo.com/api/v3/"
 
-    creds  = %{api_key: "test_example"}
+    creds = %{api_key: "test_example"}
 
     client = new(creds, "https://ghe.foo.com/api/v3/")
     assert client.endpoint == expected
