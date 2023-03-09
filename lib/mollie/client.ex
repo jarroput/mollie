@@ -7,7 +7,11 @@ defmodule Mollie.Client do
   """
 
   @type auth :: %{api_key: binary} | %{username: binary, password: binary}
-  @type t :: %__MODULE__{auth: auth | nil, endpoint: binary, options: list}
+  @type client_options :: [idempotency_key: (() -> String.t())]
+  @type t :: %__MODULE__{auth: auth | nil, endpoint: binary, options: client_options()}
+  @base_backoff 500
+  @max_backoff 2_000
+  @max_attempts 5
 
   @spec new() :: t
   def new, do: %__MODULE__{}
@@ -18,7 +22,7 @@ defmodule Mollie.Client do
   end
 
   @spec new(auth) :: t
-  def new(auth), do: %__MODULE__{auth: auth}
+  def new(auth), do: %__MODULE__{auth: auth, options: merge_options()}
 
   @spec new(auth, binary | list) :: t
   def new(auth, endpoint) when is_binary(endpoint) do
@@ -26,6 +30,7 @@ defmodule Mollie.Client do
   end
 
   def new(auth, options) when is_list(options) do
+    options = merge_options(options)
     %__MODULE__{auth: auth, options: options}
   end
 
@@ -37,6 +42,15 @@ defmodule Mollie.Client do
         endpoint <> "/"
       end
 
+    options = merge_options(options)
+
     %__MODULE__{auth: auth, endpoint: endpoint, options: options}
+  end
+
+  defp merge_options(options \\ []) do
+    Keyword.merge(
+      [base_backoff: @base_backoff, max_backoff: @max_backoff, max_attempts: @max_attempts],
+      options
+    )
   end
 end

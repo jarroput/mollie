@@ -28,7 +28,8 @@ defmodule Mollie.MixProject do
       {:finch, "~> 0.7"},
       {:jason, "~> 1.2"},
       {:credo, "~> 1.0", only: [:test, :dev], runtime: false},
-      {:ex_doc, "~> 0.21", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+      {:bypass, "~> 2.1.0", only: :test}
     ]
   end
 
