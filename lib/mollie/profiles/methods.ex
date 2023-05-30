@@ -60,7 +60,7 @@ defmodule Mollie.Profiles.Methods do
 
 
   ## Example
-  
+
       Mollie.Profiles.Methods.disable client, "ideal"
 
   More info at: https://docs.mollie.com/reference/v2/profiles-api/enable-method

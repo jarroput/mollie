@@ -7,11 +7,8 @@ jobs:
      matrix:
        include:
          - pair:
-             elixir: '1.7.4'
-             otp: '19.x'
-         - pair:
-             elixir: '1.11.4'
-             otp: '23.x'
+             elixir: '1.12.3'
+             otp: '22.x'
            lint: lint
 
    runs-on: ubuntu-18.04
